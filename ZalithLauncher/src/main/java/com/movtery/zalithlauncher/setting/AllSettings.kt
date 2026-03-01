@@ -55,6 +55,15 @@ object AllSettings : SettingsRegistry() {
      * 分辨率
      */
     val resolutionRatio = intSetting("resolutionRatio", 100, 25..300)
+    /**
+ * FSR Sharpness (0~100)
+ */
+val fsrSharpness = intSetting("fsrSharpness", 50, 0..100)
+
+/**
+ * IC Render Scale (25~100)
+ */
+val icRenderScale = intSetting("icRenderScale", 100, 25..100)
 
     /**
      * 游戏页面全屏化
