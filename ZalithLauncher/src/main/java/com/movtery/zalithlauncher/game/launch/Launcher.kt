@@ -385,17 +385,14 @@ protected open fun initEnv(screenSize: IntSize): MutableMap<String, String> {
     envMap["IC_FPS_LIMIT"] = preset.fpsLimit.toString()
     envMap["IC_FSR_SHARPNESS"] = preset.fsrSharpness.toString()
 
-    setJavaEnv(
-        screenSize = screenSize,
-        envMap = { envMap }
-    
+    setJavaEnv(screenSize) { envMap }
 
-    
+return envMap
+}
 
         
         
-        return envMap
-    }
+        
 
     private fun setJavaEnv(
         screenSize: IntSize,
