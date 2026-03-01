@@ -15,3 +15,4 @@ object ICPerformanceManager {
         fsrSharpness = AllSettings.fsrSharpness.getValue() / 100f
     )
     }
+}
