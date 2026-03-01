@@ -1,5 +1,5 @@
 package com.movtery.zalithlauncher.game.performance
-
+import com.movtery.zalithlauncher.setting.AllSettings
 data class ICPerformancePreset(
     val renderScale: Float,
     val fpsLimit: Int,
@@ -9,10 +9,9 @@ data class ICPerformancePreset(
 object ICPerformanceManager {
 
     fun getCurrentPreset(): ICPerformancePreset {
-        return ICPerformancePreset(
-            renderScale = 0.8f,
-            fpsLimit = 60,
-            fsrSharpness = 0.7f
-        )
+    return ICPerformancePreset(
+        renderScale = AllSettings.icRenderScale.getValue() / 100f,
+        fpsLimit = 60,
+        fsrSharpness = AllSettings.fsrSharpness.getValue() / 100f
+    )
     }
-}
