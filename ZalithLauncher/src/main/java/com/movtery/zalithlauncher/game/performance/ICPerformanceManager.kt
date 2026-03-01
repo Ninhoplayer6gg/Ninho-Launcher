@@ -9,10 +9,16 @@ data class ICPerformancePreset(
 object ICPerformanceManager {
 
     fun getCurrentPreset(): ICPerformancePreset {
+
+    val safeRenderScale =
+        (AllSettings.icRenderScale.getValue().coerceAtLeast(30)) / 100f
+
+    val safeSharpness =
+        (AllSettings.fsrSharpness.getValue().coerceIn(0, 100)) / 100f
+
     return ICPerformancePreset(
-        renderScale = AllSettings.icRenderScale.getValue() / 100f,
+        renderScale = safeRenderScale,
         fpsLimit = 60,
-        fsrSharpness = AllSettings.fsrSharpness.getValue() / 100f
+        fsrSharpness = safeSharpness
     )
     }
-}
