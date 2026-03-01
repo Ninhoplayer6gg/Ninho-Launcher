@@ -17,7 +17,7 @@
  */
 
 package com.movtery.zalithlauncher.game.launch
-
+import com.movtery.zalithlauncher.game.performance.ICPerformanceManager
 import android.content.Context
 import android.os.Build
 import android.os.LocaleList
@@ -375,12 +375,25 @@ abstract class Launcher(
     }
 
     @CallSuper
-    protected open fun initEnv(screenSize: IntSize): MutableMap<String, String> {
-        val envMap: MutableMap<String, String> = ArrayMap()
-        setJavaEnv(
-            screenSize = screenSize,
-            envMap = { envMap }
-        )
+protected open fun initEnv(screenSize: IntSize): MutableMap<String, String> {
+    val envMap: MutableMap<String, String> = ArrayMap()
+
+    // 🔥 IC Performance Engine
+    val preset = ICPerformanceManager.getCurrentPreset()
+
+    envMap["IC_RENDER_SCALE"] = preset.renderScale.toString()
+    envMap["IC_FPS_LIMIT"] = preset.fpsLimit.toString()
+    envMap["IC_FSR_SHARPNESS"] = preset.fsrSharpness.toString()
+
+    setJavaEnv(
+        screenSize = screenSize,
+        envMap = { envMap }
+    
+
+    
+
+        
+        
         return envMap
     }
 
