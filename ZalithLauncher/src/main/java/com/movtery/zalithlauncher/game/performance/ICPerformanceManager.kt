@@ -22,3 +22,4 @@ object ICPerformanceManager {
         fsrSharpness = safeSharpness
     )
     }
+}
